@@ -3,7 +3,6 @@ services:
     image: clickhouse/clickhouse-server
     restart: always
     user: "101:101"
-    hostname: clickhouse
     environment:
       CLICKHOUSE_DB: ${CLICKHOUSE_DB:-default}
       CLICKHOUSE_USER: ${CLICKHOUSE_USER:-clickhouse}
