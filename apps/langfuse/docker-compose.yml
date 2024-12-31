@@ -2,8 +2,6 @@ services:
   langfuse-worker:
     image: langfuse/langfuse-worker:3
     restart: always
-    ports:
-      - "3030:3030"
     environment: &langfuse-worker-env
       DATABASE_URL: ${DATABASE_URL:-postgresql://postgres:postgres@postgres:5432/postgres}
       SALT: ${SALT:-mysalt}
@@ -38,8 +36,6 @@ services:
   langfuse-web:
     image: langfuse/langfuse:3
     restart: always
-    ports:
-      - "3000:3000"
     environment:
       <<: *langfuse-worker-env
       NEXTAUTH_URL: ${NEXTAUTH_URL:-http://localhost:3000}
